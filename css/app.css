@@ -18,6 +18,8 @@ body {
 #chat-messages {
 	background-color: #fff;
 	border: 2px solid #ccc;
+	height: 300px;
+	overflow: scroll;
 }
 
 #chat-submission {

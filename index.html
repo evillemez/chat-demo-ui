@@ -8,6 +8,8 @@
     
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script src="./js/controller/ChatController.js"></script>
     <script src="./js/app.js"></script>
     
 </head>
@@ -34,7 +36,7 @@
 
     <div class="container main">
 
-        <div class="span10" id='chat-background'>
+        <div class="span10" id='chat-background' ng-app ng-controller="ChatController">
             <div class="row">
                 <!-- chat window -->
                 <div class="span6 pull-left" id='chat-window'>
@@ -42,21 +44,17 @@
                         
                         <div id='chat-messages'>
                             <div class='column-pad'>
-                                <div class='chat-msg'>
-                                    <strong>Me</strong><span class='chat-delim'>: </span><span class='chat-text'>I said...</span>
-                                </div>
-                                <div class='chat-msg'>
-                                    <strong>Person</strong><span class='chat-delim'>: </span><span class='chat-text'>I said... Well, actually I don't really remember what I said, so I'm just gonna type a lot of words and stuff and see what happens.</span>
-                                </div>
-                                <div class='chat-msg'>
-                                    <strong>Me</strong><span class='chat-delim'>: </span><span class='chat-text'>I said...</span>
+                                <div class='chat-msg' ng-repeat="message in messages">
+                                    <strong>{{message.name}}</strong><span class='chat-delim'>: </span><span class='chat-text'>{{message.text}}</span>
                                 </div>
                             </div>
                         </div>
                         <div class='pagination-centered' id='chat-submission'>
                             <div class="input-append">
-                                <input class="span5" id="appendedInputButton" type="text">
-                                <button class="btn btn-primary" type="button"><i class="icon-comment icon-white"></i></button>
+                                <form ng-submit="submitChatMessage()">
+                                    <input class="span5" type="text" ng-model="messageSubmission">
+                                    <button class="btn btn-primary" type="submit" rel="tooltip" title="Send a message"><i class="icon-comment icon-white"></i></button>
+                                </form>
                             </div>
                         </div>
                     </div>
