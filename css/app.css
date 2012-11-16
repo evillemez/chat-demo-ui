@@ -8,11 +8,13 @@ body {
 }
 
 #chat-background {
+	-background-color: #bbb;
 	margin-top: 40px;
 	padding: 40px;
 }
 
 #chat-window {
+	-background-color: #ddd;
 }
 
 #chat-messages {
@@ -26,7 +28,10 @@ body {
 	margin-top: 10px;
 }
 
-/* Why is this not aligned with #chat-messages? */
+#participant-window {
+	-background-color: #ddd;
+}
+
 #participant-list {
 	background-color: #fff;
 	border: 2px solid #ccc;
